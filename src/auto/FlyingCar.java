@@ -5,6 +5,7 @@ public class FlyingCar extends Car {
   private double altitude = 0.0;
 
   // own constructor
+  public FlyingCar() {};
   public FlyingCar(String registration) {
     super.setRegistration(registration);
   };
