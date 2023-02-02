@@ -1,14 +1,14 @@
 package carddeck;
 
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Deck {
   // attributes
   public int CARDS_TOTAL = 52;
   public int CARDS_PER_SUIT = 13;
-  private List<Card> deck = new LinkedList<>();
+  private List<Card> deck = new ArrayList<>();
   
   // constructor
   public Deck() {
