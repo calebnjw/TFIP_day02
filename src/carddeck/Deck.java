@@ -1,13 +1,14 @@
 package carddeck;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Deck {
   // attributes
-  public int cardCount = 52;
-  private Card[] deck = new Card[cardCount];
+  public int CARDS_TOTAL = 52;
+  public int CARDS_PER_SUIT = 13;
+  private List<Card> deck = new LinkedList<>();
   
   // constructor
   public Deck() {
@@ -23,10 +24,9 @@ public class Deck {
   }
 
   // getters and setters
-  
   public void getDeck() {
-    for (int i = 0; i < cardCount; i += 1) {
-      System.out.printf("%s of %s. Value: %d \n", deck[i].getName(), deck[i].getSuit(), deck[i].getValue());
+    for (int i = 0; i < CARDS_TOTAL; i += 1) {
+      System.out.printf("%s of %s. Value: %d \n", deck.get(i).getName(), deck.get(i).getSuit(), deck.get(i).getValue());
     }
   }
 
@@ -37,23 +37,21 @@ public class Deck {
     // 4 suits
     for (int i = 0; i < 4; i += 1) {
       // 13 cards per suit
-      for (int j = 0; j < 13; j += 1) {
+      for (int j = 0; j < CARDS_PER_SUIT; j += 1) {
         // create a new card item for each position in the array
         // i -> suit that card is in
         // j -> rank / name of card
-        deck[(i * 13) + j] = new Card(i, j);
+        deck.add(new Card(i, j));
       }
     }
   }
 
   public void shuffleDeck() {
     System.out.println("Shuffling deck.");
-    List<Card> cardList = Arrays.asList(deck);
-    Collections.shuffle(cardList);
-    cardList.toArray(deck);
+    Collections.shuffle(deck);
   }
 
   public int getCardCount() {
-    return cardCount;
+    return CARDS_TOTAL;
   }
 }

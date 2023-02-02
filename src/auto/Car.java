@@ -6,7 +6,7 @@ public class Car {
   private String color;
   private boolean started = false;
   private int counter = 0;
-  private int miles = 0;
+  // private int miles = 0;
 
   // constructor
   public Car() {}
